@@ -90,17 +90,4 @@ module.exports = class LinkedList {
 
     return this;
   }
-
-  map(callback) {
-    const copy = new LinkedList();
-    let currentNode = this.head;
-
-    while (currentNode.next) {
-      copy.insertAtEnd(callback(currentNode.value));
-      currentNode = currentNode.next;
-    }
-    copy.insertAtEnd(callback(currentNode.value));
-
-    return copy;
-  }
 };
