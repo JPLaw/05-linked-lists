@@ -14,11 +14,11 @@ describe('testing linked list', () => {
     testList = null;
   });
 
-  test('to create a new instance', () => {
+  it('should create a new instance', () => {
     expect(testList.head).toBeNull();
   });
 
-  test('#insertAtHead', () => {
+  it('should insert at head', () => {
     testList.insertAtHead(5);
     expect(testList.head.value).toEqual(5);
 
@@ -32,27 +32,21 @@ describe('testing linked list', () => {
     expect(testList.head.next.next.value).toEqual(5);
   });
 
-  test('#insertAtEnd', () => {
+  it('should insert at end', () => {
     testList.insertAtEnd(5);
     expect(testList.head.value).toEqual(5);
 
     testList.insertAtEnd(6);
     expect(testList.head.value).toEqual(5);
     expect(testList.head.next.value).toEqual(6);
+    
+    testList.insertAtEnd(7);
+    expect(testList.head.value).toEqual(5);
+    expect(testList.head.next.value).toEqual(6);
     expect(testList.head.next.next.value).toEqual(7);
   });
 
-  test('#find', () => {
-    testList.insertAtEnd(5);
-    testList.insertAtEnd(6);
-    testList.insertAtEnd(7);
-
-    expect(testList.find(5).value).toBe(5);
-    expect(testList.find(6).value).toBe(6);
-    expect(testList.find(7).value).toBe(7);
-  });
-
-  test('#pop', () => {
+  it('should pop node', () => {
     expect(testList.pop()).toBe(undefined);
     testList.insertAtHead(5);
     testList.insertAtEnd(6);
@@ -62,7 +56,7 @@ describe('testing linked list', () => {
     expect(testList.pop()).toBe(5);
   });
 
-  test('#remove: removes from middle of list', () => {
+  it('should removes from middle of list', () => {
     testList.insertAtEnd(5);
     testList.insertAtEnd(6);
     testList.insertAtEnd(7);
@@ -71,9 +65,8 @@ describe('testing linked list', () => {
     expect(testList.remove(1)).toBeInstanceOf(LinkedList);
   });
 
-  test('#remove: returns linked list', () => {
+  it('should returns linked list', () => {
     testList.insertAtHead(5);
     expect(testList.remove(5)).toBeInstanceOf(LinkedList);
   });
 });
-
