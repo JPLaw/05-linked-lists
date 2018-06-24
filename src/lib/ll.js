@@ -90,4 +90,18 @@ module.exports = class LinkedList {
 
     return this;
   }
+
+  map(callback) {
+    if (!this.head) {
+      throw new Error('linked list is empty');
+    }
+    let prevNode = this.head;
+    let currentNode = prevNode.next;
+
+    while (currentNode) {
+      prevNode = currentNode.next;
+      currentNode = prevNode.next; 
+    }
+    callback();
+  }
 };
