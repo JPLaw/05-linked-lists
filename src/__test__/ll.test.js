@@ -39,17 +39,11 @@ describe('testing linked list', () => {
     testList.insertAtEnd(6);
     expect(testList.head.value).toEqual(5);
     expect(testList.head.next.value).toEqual(6);
-    expect(testList.head.next.next.value).toEqual(7);
-  });
-
-  test('#find', () => {
-    testList.insertAtEnd(5);
-    testList.insertAtEnd(6);
+    
     testList.insertAtEnd(7);
-
-    expect(testList.find(5).value).toBe(5);
-    expect(testList.find(6).value).toBe(6);
-    expect(testList.find(7).value).toBe(7);
+    expect(testList.head.value).toEqual(5);
+    expect(testList.head.next.value).toEqual(6);
+    expect(testList.head.next.next.value).toEqual(7);
   });
 
   test('#pop', () => {
