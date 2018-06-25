@@ -91,18 +91,19 @@ module.exports = class LinkedList {
     return this;
   }
 
-  map(val) {
+  map(value) {
     if (!this.head) {
       throw new Error('linked list is empty');
     }
     
-    let currNode = this.head;
-    while (currNode) {
-      if (currNode.next === null) {
-        currNode.value = val * 2;
+    let currentNode = this.head;
+    while (currentNode) {
+      if (currentNode.next === null) {
+        currentNode.value *= value;
+        break;
       } else {
-        currNode.value = val * 2;
-        currNode = currNode.next;
+        currentNode.value *= value;
+        currentNode = currentNode.next;
       }
     }
     return this;
