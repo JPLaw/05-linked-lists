@@ -90,4 +90,35 @@ module.exports = class LinkedList {
 
     return this;
   }
+
+  map(val) {
+    if (!this.head) {
+      throw new Error('linked list is empty');
+    }
+    
+    let currNode = this.head;
+    while (currNode) {
+      if (currNode.next === null) {
+        currNode.value = val * 2;
+      } else {
+        currNode.value = val * 2;
+        currNode = currNode.next;
+      }
+    }
+    return this;
+  }
+
+//   map(callback) {
+//     if (!this.head) {
+//       throw new Error('linked list is empty');
+//     }
+//     let prevNode = this.head;
+//     let currentNode = prevNode.next;
+
+//     while (currentNode) {
+//       callback(prevNode);
+//       prevNode = currentNode.next;
+//       currentNode = prevNode.next; 
+//     }
+//   }
 };

@@ -56,7 +56,7 @@ describe('testing linked list', () => {
     expect(testList.pop()).toBe(5);
   });
 
-  it('should removes from middle of list', () => {
+  it('remove function should remove from middle of list', () => {
     testList.insertAtEnd(5);
     testList.insertAtEnd(6);
     testList.insertAtEnd(7);
@@ -68,5 +68,13 @@ describe('testing linked list', () => {
   it('should returns linked list', () => {
     testList.insertAtHead(5);
     expect(testList.remove(5)).toBeInstanceOf(LinkedList);
+  });
+
+  it('should map over the linked list and multiply 2', () => {
+    testList.insertAtHead(5);
+    testList.insertAtEnd(6);
+    testList.map(2);
+    expect(testList.head.value).toEqual(10);
+    expect(testList.head.next.value).toEqual(12);
   });
 });
