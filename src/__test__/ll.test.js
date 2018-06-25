@@ -70,8 +70,11 @@ describe('testing linked list', () => {
     expect(testList.remove(5)).toBeInstanceOf(LinkedList);
   });
 
-  it('should map over the linked list', () => {
-    testList.insertAtHead();
-    expect(testList.map(callback)); 
+  it('should map over the linked list and multiply 2', () => {
+    testList.insertAtHead(5);
+    testList.insertAtEnd(6);
+    testList.map(2);
+    expect(testList.head.value).toEqual(10);
+    expect(testList.head.next.value).toEqual(12);
   });
 });
